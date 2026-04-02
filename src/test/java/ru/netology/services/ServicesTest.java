@@ -3,15 +3,15 @@ package ru.netology.services;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.api.Assertions;
-import ru.netology.qa.Main;
+import ru.netology.qa.Services;
 
-public class services {
+public class ServicesTest {
 
     @ParameterizedTest
     // numLinesToSkip = 1 нужно, если в CSV есть заголовок (первая строка с названиями)
     @CsvFileSource(resources = "/vac.csv")
     public void shouldCalculateVacationMonths(int income, int expenses, int threshold, int expected) {
-        Main service = new Main();
+        Services service = new Services();
 
         int actual = service.calculate(income, expenses, threshold);
         System.out.println(actual);
